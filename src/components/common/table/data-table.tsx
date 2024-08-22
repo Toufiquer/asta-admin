@@ -34,6 +34,7 @@ import {
   AiOutlineLeft,
   AiOutlineRight,
 } from "react-icons/ai";
+import { Input } from "@/components/ui/input"
 
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
@@ -66,17 +67,28 @@ const DataTable = <TData, TValue>({
     onGlobalFilterChange: setFiltering,
   });
   return (
-    <>
-      <div className="mb-8 rounded-md border">
+    <div>
+      <div className="py-4">
+        <Input
+          placeholder="Filter..."
+          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
+          onChange={(event) =>
+            table.getColumn("name")?.setFilterValue(event.target.value)
+          }
+          className="max-w-sm bg-transparent"
+        />
+      </div>
+      <div className="mb-8 rounded-md border pt-1">
+
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow className="bg-slate-100" key={headerGroup.id}>
+              <TableRow className="bg-slate-900 hover:bg-slate-950 text-slate-200" key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
                     <TableHead
                       key={header.id}
-                      className=" font-bold text-slate-950"
+                      className=" font-bold text-slate-200"
                       onClick={header.column.getToggleSortingHandler()}
                     >
                       {header.isPlaceholder
@@ -100,6 +112,7 @@ const DataTable = <TData, TValue>({
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map((row) => (
                 <TableRow
+                className=" hover:bg-slate-950"
                   key={row.id}
                   data-state={row.getIsSelected() && "selected"}
                 >
@@ -135,14 +148,14 @@ const DataTable = <TData, TValue>({
         </p>
         <div className="flex items-center justify-end gap-2">
           <Button
-            className=""
+            className="bg-gray-800 "
             variant="outline"
             onClick={() => table.setPageIndex(0)}
           >
             <AiOutlineDoubleLeft />
           </Button>
           <Button
-            className=""
+            className="bg-gray-800 "
             variant="outline"
             disabled={!table.getCanPreviousPage()}
             onClick={() => table.previousPage()}
@@ -150,7 +163,7 @@ const DataTable = <TData, TValue>({
             <AiOutlineLeft />
           </Button>
           <Button
-            className=""
+            className="bg-gray-800 "
             variant="outline"
             disabled={!table.getCanNextPage()}
             onClick={() => table.nextPage()}
@@ -158,7 +171,7 @@ const DataTable = <TData, TValue>({
             <AiOutlineRight />
           </Button>
           <Button
-            className=""
+            className="bg-gray-800 "
             variant="outline"
             onClick={() => table.setPageIndex(table.getPageCount() - 1)}
           >
@@ -166,7 +179,7 @@ const DataTable = <TData, TValue>({
           </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -21,14 +21,14 @@ export const StatusBox = ({
 }) => {
   const convertText = text.toLocaleLowerCase();
   let result = (
-    <div className={`${statusStyle} ${className} bg-red-200 text-red-500`}>
+    <div className={`${statusStyle} ${className} bg-red-200 text-red-950`}>
       {text} <BsExclamationCircle />
     </div>
   );
   if (convertText === "paid") {
     result = (
       <div
-        className={`${statusStyle} ${className} bg-green-200 text-green-500`}
+        className={`${statusStyle} ${className} bg-green-200 text-green-950`}
       >
         {text} <BsCheck2 />
       </div>
@@ -43,7 +43,7 @@ export const StatusBox = ({
     );
   } else if (convertText === "pending") {
     result = (
-      <div className={`${statusStyle} ${className} bg-red-200 text-red-500`}>
+      <div className={`${statusStyle} ${className} bg-red-200 text-red-950`}>
         {text} <BsExclamationCircle />
       </div>
     );
@@ -56,7 +56,7 @@ export const StatusBox = ({
   } else if (convertText === "order fulfilled") {
     result = (
       <div
-        className={`${statusStyle} ${className} bg-green-200 text-green-500`}
+        className={`${statusStyle} ${className} bg-green-200 text-green-950`}
       >
         {text} <BsCheck2 />
       </div>
@@ -64,7 +64,7 @@ export const StatusBox = ({
   } else if (convertText === "fulfilled") {
     result = (
       <div
-        className={`${statusStyle} ${className} bg-green-200 text-green-500`}
+        className={`${statusStyle} ${className} bg-green-200 text-green-950`}
       >
         {text} <BsCheck2 />
       </div>
@@ -72,7 +72,7 @@ export const StatusBox = ({
   } else if (convertText === "shipped") {
     result = (
       <div
-        className={`${statusStyle} ${className} bg-green-200 text-green-500`}
+        className={`${statusStyle} ${className} bg-green-200 text-green-950`}
       >
         {text} <BsCheck2 />
       </div>
@@ -80,7 +80,7 @@ export const StatusBox = ({
   } else if (convertText === "approved") {
     result = (
       <div
-        className={`${statusStyle} ${className} bg-green-200 text-green-500`}
+        className={`${statusStyle} ${className} bg-green-200 text-green-950`}
       >
         {text} <BsCheck2 />
       </div>
@@ -93,13 +93,13 @@ export const StatusBox = ({
     );
   } else if (convertText === "partial fulfilled") {
     result = (
-      <div className={`${statusStyle} ${className} bg-red-200 text-red-500`}>
+      <div className={`${statusStyle} ${className} bg-red-200 text-red-950`}>
         {text} <BsExclamationCircle />
       </div>
     );
   } else if (convertText === "partially fulfilled") {
     result = (
-      <div className={`${statusStyle} ${className} bg-red-200 text-red-500`}>
+      <div className={`${statusStyle} ${className} bg-red-200 text-red-950`}>
         {text} <BsExclamationCircle />
       </div>
     );

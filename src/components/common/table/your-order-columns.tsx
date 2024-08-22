@@ -16,8 +16,9 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { StatusBox } from "./status-box";
-import { yourOrdersType } from "./your-order-type";
-import { AiOutlineEye } from "react-icons/ai";
+import { yourOrdersType } from "./your-order-type"; 
+import { FaRegEdit } from "react-icons/fa";
+
 
 export const columns: ColumnDef<yourOrdersType>[] = [
   {
@@ -107,11 +108,11 @@ export const columns: ColumnDef<yourOrdersType>[] = [
           <Tooltip>
             <TooltipTrigger>
               <span className="cursor-pointer">
-                <AiOutlineEye />
+                <FaRegEdit  />
               </span>
             </TooltipTrigger>
             <TooltipContent>
-              <p className="text-xs">View</p>
+              <p className="text-xs">Edit</p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>

@@ -8,10 +8,10 @@
 
 "use client";
 
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import Sidebar from "./sidebar";
 
-const SiteNav = ({ isOpen = false }: { isOpen: boolean }) => {
+const SiteNav = ({ isOpen = false,setCurrTitle }: {setCurrTitle: Dispatch<SetStateAction<string>>; isOpen: boolean }) => {
   const [toggle, setToggle] = useState(true);
   const handleToggle = () => setToggle((pre) => !pre);
   useEffect(() => {
@@ -19,7 +19,7 @@ const SiteNav = ({ isOpen = false }: { isOpen: boolean }) => {
   }, [isOpen]);
   return (
     <main>
-      <Sidebar toggle={toggle} handleToggle={handleToggle} toggleButton={true} />
+      <Sidebar toggle={toggle} handleToggle={handleToggle} toggleButton={true} setCurrTitle={setCurrTitle}/>
     </main>
   );
 };

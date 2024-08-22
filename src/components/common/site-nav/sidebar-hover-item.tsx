@@ -9,7 +9,7 @@
 "use client";
 
 import Link from "next/link";
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 import { Badge } from "@/components/ui/badge";
 import { LINKTYPE } from "./sidebar-data";
 import { SIDEBARTYPE } from "./sidebar-data";
@@ -22,8 +22,8 @@ import {
 const SidebarHoverItem = ({
   children,
   data,
-  className,
-}: {
+  className,setCurrTitle,
+}: {setCurrTitle:Dispatch<SetStateAction<string>>
   children?: ReactNode | null;
   data?: ReactNode | null | SIDEBARTYPE;
   className?: string | null;
@@ -41,7 +41,7 @@ const SidebarHoverItem = ({
     <>
       <div className={`${content.length > 0 && "border-b"} min-py-2`}>
         {link !== "" ? (
-          <Link href={`${link}`}>
+          <Link href={`${link}`}  onClick={()=>setCurrTitle(name)}>
             <h2 className="w-full py-2 pl-4">{name}</h2>
           </Link>
         ) : (
@@ -53,7 +53,7 @@ const SidebarHoverItem = ({
         <div className="right-0 -ml-6 flex flex-col overflow-hidden">
           {content?.map((curr: LINKTYPE, index: number) => {
             return (
-              <Link
+              <Link onClick={()=>setCurrTitle(name)}
                 key={curr.id || index}
                 href={`${curr.link}`}
                 className="flex items-center justify-start gap-2 rounded py-[.35rem] pl-[35px] hover:bg-[#eff2f6] hover:text-[#3874ff]"
@@ -79,7 +79,7 @@ const SidebarHoverItem = ({
   return (
     <HoverCard>
       <HoverCardTrigger>
-        <div className=" flex min-h-[22px] w-full cursor-pointer items-center justify-center rounded-[.5rem] py-2 hover:bg-[#eff2f6]">
+        <div  onClick={()=>setCurrTitle(name)} className=" flex min-h-[22px] w-full cursor-pointer items-center justify-center rounded-[.5rem] py-2 hover:bg-[#eff2f6]">
           <div className="relative py-1">
             {icon}
             {isActive && (

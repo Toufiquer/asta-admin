@@ -27,6 +27,7 @@ const SiteNavLayoutResizable = () => {
     }
     document.cookie = `react-resizable-panels:layout=${JSON.stringify(sizes)}`;
   };
+  const [currTitle,setCurrTitle]=useState("")
   return (
     <main className="bg-slate-900 text-white">
       <ResizablePanelGroup
@@ -35,11 +36,11 @@ const SiteNavLayoutResizable = () => {
         onLayout={onLayout}
       >
         <ResizablePanel defaultSize={16}>
-          <SiteNav isOpen={isOpen} />
+          <SiteNav isOpen={isOpen} setCurrTitle={setCurrTitle} />
         </ResizablePanel>
         <ResizableHandle  />
         <ResizablePanel>
-          <Outlet title="Global Template" />
+          <Outlet title={`${currTitle ? currTitle : "No item selected"} `} />
         </ResizablePanel>
       </ResizablePanelGroup>
     </main>

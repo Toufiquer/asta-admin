@@ -8,7 +8,7 @@
 
 "use client";
 
-import { ReactNode, useState } from "react";
+import { Dispatch, ReactNode, SetStateAction, useState } from "react";
 import Link from "next/link";
 
 import {
@@ -25,8 +25,8 @@ import { LINKTYPE, SIDEBARTYPE } from "./sidebar-data";
 const SidebarAccordion = ({
   children,
   data,
-  className,
-}: {
+  className,setCurrTitle,
+}: {setCurrTitle:Dispatch<SetStateAction<string>>
   children?: ReactNode | null;
   data?: ReactNode | null | SIDEBARTYPE;
   className?: string | null;
@@ -65,7 +65,7 @@ const SidebarAccordion = ({
               </span>
               <div className="relative">
                 {link !== "" ? (
-                  <Link href={`${link}`}>
+                  <Link href={`${link}`} onClick={()=>setCurrTitle(name)}>
                     <h2 className="w-full">{name}</h2>
                   </Link>
                 ) : (
@@ -83,7 +83,7 @@ const SidebarAccordion = ({
             <div className={`flex w-full max-w-[248px] flex-col ${className}`}>
               {content?.map((curr: LINKTYPE, index: number) => {
                 return (
-                  <Link
+                  <Link onClick={()=>setCurrTitle(curr.name)}
                     key={curr.id || index}
                     href={`${curr.link}`}
                     className="flex items-center justify-start gap-2 rounded py-[.35rem] pl-[53px] hover:bg-[#eff2f6] hover:text-[#3874ff]"

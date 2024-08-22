@@ -7,19 +7,6 @@
 */
 import SidebarAccordion from "./sidebar-accordion";
 import {
-  sidebarDataHome,
-  sidebarDataECommerce,
-  sidebarDataCRM,
-  sidebarDataProjectManagement,
-  sidebarDataProjectChat,
-  sidebarDataProjectEmail,
-  sidebarDataProjectEvents,
-  sidebarDataProjectKanban,
-  sidebarDataProjectSocial,
-  sidebarDataProjectCalendar,
-  sidebarDataProjectStarter,
-  sidebarDataProjectFaq,
-  sidebarDataProjectLoading,
   sidebarDashboard,
   sidebarReturnOrderList,
   sidebarWebOrders,
@@ -30,12 +17,16 @@ import {
 import { CgArrowLongLeft, CgArrowLongRight } from "react-icons/cg";
 import SidebarHoverItem from "./sidebar-hover-item";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Dispatch, SetStateAction } from "react";
 
 const Sidebar = ({
   toggle,
   handleToggle,
+  setCurrTitle,
   toggleButton = false,
+  
 }: {
+  setCurrTitle:Dispatch<SetStateAction<string>>
   toggleButton?: boolean;
   toggle: boolean;
   handleToggle: () => void;
@@ -46,11 +37,11 @@ const Sidebar = ({
         <ScrollArea className="h-[calc(100vh_-_122px)]">
           {toggle ? (
             <div className="ml-3">
-              <SidebarAccordion data={sidebarDashboard} className="pt-4" />
-              <SidebarAccordion data={sidebarReturnOrderList} className="pt-4" />
-              <SidebarAccordion data={sidebarWebOrders} className="pt-4" />
-              <SidebarAccordion data={sidebarSearch} className="pt-4" />
-              <SidebarAccordion data={sidebarOrders} className="pt-4" />
+              <SidebarAccordion setCurrTitle={setCurrTitle} data={sidebarDashboard} className="pt-4" />
+              <SidebarAccordion setCurrTitle={setCurrTitle} data={sidebarReturnOrderList} className="pt-4" />
+              <SidebarAccordion setCurrTitle={setCurrTitle} data={sidebarWebOrders} className="pt-4" />
+              <SidebarAccordion setCurrTitle={setCurrTitle} data={sidebarSearch} className="pt-4" />
+              <SidebarAccordion setCurrTitle={setCurrTitle} data={sidebarOrders} className="pt-4" />
               {/* <h2 className="mb-2 mt-4 pl-4 text-[.8rem]">APPS</h2>
               <SidebarAccordion data={sidebarDataECommerce} />
               <SidebarAccordion data={sidebarDataCRM} />
@@ -70,11 +61,11 @@ const Sidebar = ({
           ) : (
             <div className="flex flex-col p-2">
               <div className="h-4" />
-              <SidebarHoverItem data={sidebarDashboard} />
-              <SidebarHoverItem data={sidebarReturnOrderList} />
-              <SidebarHoverItem data={sidebarWebOrders} />
-              <SidebarHoverItem data={sidebarSearch} />
-              <SidebarHoverItem data={sidebarOrders} />
+              <SidebarHoverItem setCurrTitle={setCurrTitle} data={sidebarDashboard} />
+              <SidebarHoverItem setCurrTitle={setCurrTitle} data={sidebarReturnOrderList} />
+              <SidebarHoverItem setCurrTitle={setCurrTitle} data={sidebarWebOrders} />
+              <SidebarHoverItem setCurrTitle={setCurrTitle} data={sidebarSearch} />
+              <SidebarHoverItem setCurrTitle={setCurrTitle} data={sidebarOrders} />
               {/* <div className="my-4 flex w-full justify-center border-t" />
               <SidebarHoverItem data={sidebarDataECommerce} />
               <SidebarHoverItem data={sidebarDataCRM} />

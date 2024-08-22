@@ -1,6 +1,7 @@
 
 'use client'
 
+import { useEffect, useState } from "react";
 import DataTable from "./data-table";
 
 import { columns } from "./your-order-columns";
@@ -222,10 +223,15 @@ const yourOrdersData: yourOrdersType[] = [
 
 
 export default function DemoTable() { 
-
+  const [dataTable,setDataTable] = useState<yourOrdersType[]>([])
+useEffect(()=>{
+  setTimeout(()=> {
+    setDataTable(yourOrdersData)
+  },5000)
+},[])
   return (
     <div className="container mx-auto py-10">
-        <DataTable columns={columns} data={yourOrdersData} />
+        <DataTable columns={columns} data={dataTable} />
     </div>
   )
 }

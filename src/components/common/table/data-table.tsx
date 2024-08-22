@@ -7,7 +7,11 @@
 */
 
 "use client";
-
+import {
+  CaretSortIcon,
+  ChevronDownIcon,
+  DotsHorizontalIcon,
+} from "@radix-ui/react-icons"
 import { useState } from "react";
 import {
   ColumnDef,
@@ -18,7 +22,15 @@ import {
   getSortedRowModel,
   getFilteredRowModel,
 } from "@tanstack/react-table";
-
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import {
   Table,
   TableBody,
@@ -68,7 +80,8 @@ const DataTable = <TData, TValue>({
   });
   return (
     <div>
-      <div className="py-4">
+      <div className="py-4 flex w-full items-center justify-between">
+      
         <Input
           placeholder="Filter..."
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
@@ -77,6 +90,32 @@ const DataTable = <TData, TValue>({
           }
           className="max-w-sm bg-transparent"
         />
+ <DropdownMenu>
+          <DropdownMenuTrigger asChild  className='bg-transparent'>
+            <Button variant="outline" className="ml-auto">
+              Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            {table
+              .getAllColumns()
+              .filter((column) => column.getCanHide())
+              .map((column) => {
+                return (
+                  <DropdownMenuCheckboxItem
+                    key={column.id}
+                    className="capitalize"
+                    checked={column.getIsVisible()}
+                    onCheckedChange={(value) =>
+                      column.toggleVisibility(!!value)
+                    }
+                  >
+                    {column.id}
+                  </DropdownMenuCheckboxItem>
+                )
+              })}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
       <div className="mb-8 rounded-md border pt-1">
 

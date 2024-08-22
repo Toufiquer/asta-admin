@@ -22,8 +22,12 @@ import { FaRegEdit } from "react-icons/fa";
 
 export const columns: ColumnDef<yourOrdersType>[] = [
   {
+    accessorKey: "id",
+    header: "Id",
+  },
+  {
     accessorKey: "productUrl",
-    header: "",
+    header: "Image",
     cell: (info) => (
       <Image
         className="h-[80px] min-h-[80px] w-[80px] min-w-[80px] object-cover"
@@ -100,8 +104,8 @@ export const columns: ColumnDef<yourOrdersType>[] = [
     ),
   },
   {
-    accessorKey: "id",
-    header: "",
+    accessorKey: "edit",
+    header: "Edit",
     cell: (info) => (
       <span className="flex items-center gap-3">
         <TooltipProvider>

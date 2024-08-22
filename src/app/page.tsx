@@ -25,15 +25,6 @@ export default function Home() {
       <div className="pb-[13px]">
       <Header />
       </div>
-      {/* <ResizablePanelGroup direction="horizontal" className="min-h-[92vh]">
-        <ResizablePanel defaultSize={30}>
-          <SideBar />
-        </ResizablePanel>
-        <ResizableHandle  />
-        <ResizablePanel>
-          <Outlet />
-        </ResizablePanel>
-      </ResizablePanelGroup> */}
       
       <SiteNavLayoutResizable />
       <ToastContainer />

@@ -227,7 +227,7 @@ export default function DemoTable() {
 useEffect(()=>{
   setTimeout(()=> {
     setDataTable(yourOrdersData)
-  },2000)
+  },5000)
 },[])
   return (
     <div className="container mx-auto py-10">

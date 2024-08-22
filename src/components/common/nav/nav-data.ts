@@ -7,79 +7,79 @@
 */
 const navData = {
   baseInfo: {
-    firstName: "ASTA",
-    lastName: "",
+    firstName: 'ASTA',
+    lastName: '',
   },
   about: {
-    groupTitle: "About",
-    fullName: "Asta.com",
-    description: " The best service provider for your business growth.",
+    groupTitle: 'About',
+    fullName: 'Asta.com',
+    description: ' The best service provider for your business growth.',
     links: [
       {
         id: 1,
-        title: "Introduction",
-        url: "/",
-        description: "We are a group of people to solve your problems",
+        title: 'Introduction',
+        url: '/',
+        description: 'We are a group of people to solve your problems',
       },
       {
         id: 2,
-        title: "Installation",
-        url: "/",
-        description: "We have more then three plan for your business",
+        title: 'Installation',
+        url: '/',
+        description: 'We have more then three plan for your business',
       },
       {
         id: 3,
-        title: "Installation",
-        url: "/",
-        description: "We have more then three plan for your business",
+        title: 'Installation',
+        url: '/',
+        description: 'We have more then three plan for your business',
       },
     ],
   },
   services: {
-    groupTitle: "Services",
+    groupTitle: 'Services',
     data: [
       {
-        title: "Supports",
-        href: "/",
+        title: 'Supports',
+        href: '/',
         description:
-          "A modal dialog that interrupts the user with important content and expects a response.",
+          'A modal dialog that interrupts the user with important content and expects a response.',
       },
       {
-        title: "Preview",
-        href: "/",
+        title: 'Preview',
+        href: '/',
         description:
-          "For sighted users to preview content available behind a link.",
+          'For sighted users to preview content available behind a link.',
       },
       {
-        title: "Indicator",
-        href: "/",
+        title: 'Indicator',
+        href: '/',
         description:
-          "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+          'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
       },
       {
-        title: "Content",
-        href: "/",
-        description: "Visually or semantically separates content.",
+        title: 'Content',
+        href: '/',
+        description: 'Visually or semantically separates content.',
       },
       {
-        title: "Tabs",
-        href: "/",
+        title: 'Tabs',
+        href: '/',
         description:
-          "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+          'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
       },
       {
-        title: "Information",
-        href: "/",
+        title: 'Information',
+        href: '/',
         description:
-          "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+          'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
       },
     ],
   },
   othersLink: [
-    { id: 1, title: "Project", url: "/project" },
-    { id: 2, title: "Blog", url: "/blog" },
-    { id: 3, title: "Contact", url: "/contact" },
-    { id: 4, title: "Log In", url: "/logIn" },
+    { id: 1, title: 'Project', url: '/project' },
+    { id: 2, title: 'Blog', url: '/blog' },
+    { id: 3, title: 'Contact', url: '/contact' },
+    { id: 4, title: 'Login/Signup', url: '/logIn' },
   ],
-};
-export default navData;
+}
+export default navData

@@ -11,9 +11,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Nav from './nav/nav'
 
-const navData = [
-  { id: '1.1', href: '/doc', name: 'Doc', title: 'Doc' },
-]
+
 
 const Header = () => {
   return (

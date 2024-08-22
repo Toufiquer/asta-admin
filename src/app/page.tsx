@@ -9,6 +9,7 @@
 import Header from "@/components/common/header";
 import Outlet from "@/components/common/outlet";
 import SideBar from "@/components/common/side-bar";
+import SiteNavLayoutResizable from "@/components/common/site-nav-layout-resizable";
 import {
   ResizableHandle,
   ResizablePanel,
@@ -24,7 +25,7 @@ export default function Home() {
       <div className="pb-[13px]">
       <Header />
       </div>
-      <ResizablePanelGroup direction="horizontal" className="min-h-[92vh]">
+      {/* <ResizablePanelGroup direction="horizontal" className="min-h-[92vh]">
         <ResizablePanel defaultSize={30}>
           <SideBar />
         </ResizablePanel>
@@ -32,7 +33,9 @@ export default function Home() {
         <ResizablePanel>
           <Outlet />
         </ResizablePanel>
-      </ResizablePanelGroup>
+      </ResizablePanelGroup> */}
+      
+      <SiteNavLayoutResizable />
       <ToastContainer />
     </main>
   );

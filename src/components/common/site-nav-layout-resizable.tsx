@@ -19,6 +19,7 @@ import { useState } from 'react'
 import Dashboard from './outlet-components/dashboard/Dashboard'
 import ReturnOrderList from './outlet-components/return-order-list/Return-order-list'
 import WebOrders from './outlet-components/web-orders/Web-orders'
+import Search from './outlet-components/search/Search'
 
 const SiteNavLayoutResizable = () => {
   const [isOpen, setIsOpen] = useState(true)
@@ -42,6 +43,8 @@ const SiteNavLayoutResizable = () => {
     renderOutlet = <ReturnOrderList />
   } else if (currTitle.toLocaleLowerCase() === 'web orders') {
     renderOutlet = <WebOrders />
+  } else if (currTitle.toLocaleLowerCase() === 'search') {
+    renderOutlet = <Search />
   } else {
     renderOutlet = (
       <Outlet title={`${currTitle ? currTitle : 'No item selected'} `} />

@@ -219,7 +219,11 @@ const yourOrdersData: yourOrdersType[] = [
   },
 ]
 
-export default function DemoTable() {
+export default function DemoTable({
+  viewTotalCount,
+}: {
+  viewTotalCount: boolean
+}) {
   const [dataTable, setDataTable] = useState<yourOrdersType[]>([])
   useEffect(() => {
     setTimeout(() => {
@@ -228,6 +232,9 @@ export default function DemoTable() {
   }, [])
   return (
     <div className="px-4">
+      {viewTotalCount && (
+        <h2 className="text-xl">Total Orders: {dataTable.length}</h2>
+      )}
       <DataTable columns={columns} data={dataTable} />
     </div>
   )

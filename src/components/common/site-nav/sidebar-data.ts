@@ -5,68 +5,52 @@
 | @copyright: Toufiquer, May, 2024
 |-----------------------------------------
 */
-import { Url } from "url";
-import { ReactNode } from "react";
+import { Url } from 'url'
+import { ReactNode } from 'react'
 
 export type LINKTYPE = {
-  name: string;
-  link: Url | string;
-  badge?: string;
-  id?: string | number;
-  icon?: ReactNode | string;
-};
+  name: string
+  link: Url | string
+  badge?: string
+  id?: string | number
+  icon?: ReactNode | string
+}
 
 export type SIDEBARTYPE = {
-  name: string;
-  icon?: ReactNode | null;
-  content: Array<LINKTYPE>;
-  isDropdown?: boolean;
-  isActive?: boolean;
-  link?: Url | string;
-};
-import {
-
-  iconMdOutlineDashboard,
-} from "./side-nav-react-icons";
-
+  name: string
+  icon?: ReactNode | null
+  content: Array<LINKTYPE>
+  isDropdown?: boolean
+  isActive?: boolean
+  link?: Url | string
+}
+import { iconMdOutlineDashboard } from './side-nav-react-icons'
 
 export const sidebarDashboard: SIDEBARTYPE = {
-  name: "Dashboard",
+  name: 'Dashboard',
   icon: iconMdOutlineDashboard,
-  content: [
-    { name: "Dashboard", link: "/", id: 1 },
-  ],
-  
-};
+  content: [{ name: 'Dashboard', link: '/', id: 1 }],
+}
 export const sidebarReturnOrderList: SIDEBARTYPE = {
-  name: "Return Order List",
+  name: 'Return Order List',
   icon: iconMdOutlineDashboard,
-  content: [
-    { name: "Return Order List", link: "/", id: 1 },
-  ],
-  
-};
+  content: [{ name: 'Return Order List', link: '/', id: 1 }],
+}
 export const sidebarWebOrders: SIDEBARTYPE = {
-  name: "WebOrders",
+  name: 'WebOrders',
   icon: iconMdOutlineDashboard,
-  content: [
-    { name: "Web Orders", link: "/", id: 1 },
-  ],
-  
-};
+  content: [{ name: 'Web Orders', link: '/', id: 1 }],
+}
 export const sidebarSearch: SIDEBARTYPE = {
-  name: "Search",
+  name: 'Search',
   icon: iconMdOutlineDashboard,
-  content: [
-    { name: "Search", link: "/", id: 1 },
-  ],
-  
-};
+  content: [{ name: 'Search', link: '/', id: 1 }],
+}
 export const sidebarOrders: SIDEBARTYPE = {
-  name: "Orders",
+  name: 'Orders',
   icon: iconMdOutlineDashboard,
   content: [
-    { name: "Orders", link: "/", id: 1 },
+    { name: 'Orders', link: '/', id: 1 },
+    { name: 'New order', link: '/', id: 2 },
   ],
-  
-};
+}

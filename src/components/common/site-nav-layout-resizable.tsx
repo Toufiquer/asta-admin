@@ -21,6 +21,7 @@ import ReturnOrderList from './outlet-components/return-order-list/Return-order-
 import WebOrders from './outlet-components/web-orders/Web-orders'
 import Search from './outlet-components/search/Search'
 import Orders from './outlet-components/orders/Orders'
+import NewOrder from './outlet-components/new-order/New-order'
 
 const SiteNavLayoutResizable = () => {
   const [isOpen, setIsOpen] = useState(true)
@@ -48,6 +49,8 @@ const SiteNavLayoutResizable = () => {
     renderOutlet = <Search />
   } else if (currTitle.toLocaleLowerCase() === 'orders') {
     renderOutlet = <Orders />
+  } else if (currTitle.toLocaleLowerCase() === 'new order') {
+    renderOutlet = <NewOrder />
   } else {
     renderOutlet = (
       <Outlet title={`${currTitle ? currTitle : 'No item selected'} `} />

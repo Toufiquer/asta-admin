@@ -232,10 +232,16 @@ export default function DemoTable({
   }, [])
   return (
     <div className="px-4">
-      {viewTotalCount && (
-        <h2 className="text-xl">Total Orders: {dataTable.length}</h2>
+      {dataTable.length > 0 ? (
+        <div>
+          {viewTotalCount && (
+            <h2 className="text-xl">Total Orders: {dataTable.length}</h2>
+          )}
+          <DataTable columns={columns} data={dataTable} />
+        </div>
+      ) : (
+        <h2 className="text-center">Loading...</h2>
       )}
-      <DataTable columns={columns} data={dataTable} />
     </div>
   )
 }
